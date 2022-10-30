@@ -44,7 +44,7 @@ documents = []
 #allowed_word_types = ["J","R","V"]
 allowed_word_types = ["J"]
 
-for r in short_pos.split('\n'):  #we're splitting the reviews by line
+for r in short_pos.split('\n'):  #we're splitting the positive reviews by line
     documents.append( (r,'pos')) #we're adding the positive reviews to the list
     words = word_tokenize(r) #we're separating the words in each pos review
     pos = nltk.pos_tag(words)
@@ -52,10 +52,10 @@ for r in short_pos.split('\n'):  #we're splitting the reviews by line
         if w[1][0] in allowed_word_types:
             all_words.append(w[0].lower()) 
 
-for r in short_neg.split('\n'):
-    documents.append( (r,'neg'))  #we're adding the negative reviews to the list
-    words = word_tokenize(r)
-    pos = nltk.pos_tag(words)  #we're separating the words in each neg review
+for r in short_neg.split('\n'):  #we're splitting the negative reviews by line
+    documents.append( (r,'neg')) #we're adding the negative reviews to the list
+    words = word_tokenize(r) #we're separating the words in each neg review
+    pos = nltk.pos_tag(words)  
     for w in pos:
         if w[1][0] in allowed_word_types:
             all_words.append(w[0].lower())
