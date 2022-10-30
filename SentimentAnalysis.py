@@ -1,4 +1,3 @@
-from pyexpat import native_encoding
 import nltk
 import random
 from nltk.corpus import movie_reviews
